@@ -32,13 +32,13 @@ function request_a_demo_form( $atts ){
 
     <input type=hidden name="retURL" value="' . $a['ret_url'] . '">
 
-    <input type=hidden name="Product_Family__c" value="' . $a['product_family_c'] .'">
+    <input type=hidden name="Product_Family__c" value="' . $a['product_family_c'] . '">
 
     <input type=hidden name="lead_source" value="Website">
 
     <input id="dupcheck__dc3Web2Lead__c" name="dupcheck__dc3Web2Lead__c" type="hidden" value="1" />
 
-    <input type=hidden name="Lead_Source_Detail__c" value="' . $a['lead_source_detail'] .'">
+    <input type=hidden name="Lead_Source_Detail__c" value="' . $a['lead_source_detail'] . '">
 
     <input type=hidden name="Offer_Type__c" value="' . $a['offer_type_c'] . '">
 
@@ -49,19 +49,45 @@ function request_a_demo_form( $atts ){
     <input type="hidden" id="RollworksID__c" name="RollworksID__c" value="">
     <div class="row" style="margin-top: 50px;">
         <div class="col-xs-12 col-md-6 col-lg-6">
-            <label for="first_name">First Name*</label><input  id="first_name" maxlength="40" name="first_name" size="20" type="text" required=true />
+            <label for="first_name">First Name*</label>
+            <input  id="first_name" maxlength="40" name="first_name" size="20" type="text" required=true />
 
-            <br><br></div><div class="col-xs-12 col-md-6 col-lg-6">
+            <br><br>
+        </div>
+        <div class="col-xs-12 col-md-6 col-lg-6">
+            <label for="last_name">Last Name*</label>
+            <input  id="last_name" maxlength="80" name="last_name" size="20" type="text" required=true />
+            <br>
+            <br>
+        </div>
+        <div class="col-xs-12 col-md-6 col-lg-6">
 
-            <label for="last_name">Last Name*</label><input  id="last_name" maxlength="80" name="last_name" size="20" type="text" required=true /><br><br></div><div class="col-xs-12 col-md-6 col-lg-6">
+            <label for="Company">Company*</label>
+            <input  id="company" maxlength="140" name="company" size="20" type="text" required=true />
+            <br><br>
+        </div>
+        <div class="col-xs-12 col-md-6 col-lg-6">
 
-            <label for="Company">Company*</label><input  id="company" maxlength="140" name="company" size="20" type="text" required=true /><br><br></div><div class="col-xs-12 col-md-6 col-lg-6">
+            <label for="email">Email*</label>
+            <input  id="email" maxlength="80" name="email" size="20" type="text" required=true />
+            <br>
+            <br>
+            </div>
+        <div class="col-xs-12 col-md-6 col-lg-6">
 
-            <label for="email">Email*</label><input  id="email" maxlength="80" name="email" size="20" type="text" required=true /><br><br></div><div class="col-xs-12 col-md-6 col-lg-6">
+            <label for="URL">Website*</label>
+            <input  id="URL" maxlength="255" name="URL" size="20" type="text" required=true />
+            <br>
+            <br>
+        </div>
+        <div class="col-xs-12 col-md-6 col-lg-6">
 
-            <label for="URL">Website*</label><input  id="URL" maxlength="255" name="URL" size="20" type="text" required=true /><br><br></div><div class="col-xs-12 col-md-6 col-lg-6">
-
-            <label for="phone">Phone*</label><input  id="phone" maxlength="40" name="phone" size="20" type="text" required=true /><br><br></div><div class="col-xs-12 col-md-6 col-lg-6">
+            <label for="phone">Phone*</label>
+            <input  id="phone" maxlength="40" name="phone" size="20" type="text" required=true />
+            <br>
+            <br>
+        </div>
+        <div class="col-xs-12 col-md-6 col-lg-6">
 
             <label for="country">Country*</label>
             <select  id="country" name="country" required>
@@ -305,21 +331,30 @@ function request_a_demo_form( $atts ){
                 <option value="Yemen">Yemen</option>
                 <option value="Zambia">Zambia</option>
                 <option value="Zimbabwe">Zimbabwe</option>
-            </select><br><br>
-
+            </select>
+            <br>
+            <br>
             <input type=hidden name="Lead_Notes__c" value="Current Attribution Provider">
-        </div><div class="col-xs-12 col-md-6 col-lg-6">
-            <label for="Current Attribution Provider">Who is your Current Attribution Provider?*</label><input  id="Lead_Notes__c" maxlength="100" name="Lead_Notes__c" size="20" type="text" required=true /><br><br>
+        </div>
+        <div class="col-xs-12 col-md-6 col-lg-6">
+            <label for="Current Attribution Provider">Who is your Current Attribution Provider?*</label>
+            <input  id="Lead_Notes__c" maxlength="100" name="Lead_Notes__c" size="20" type="text" required=true />
+            <br>
+            <br>
 
             <input type=hidden name="Lead_Notes__c" value="Comments/Notes:">
 
-        </div><div class="col-xs-12 col-md-12 col-lg-12">
-            <label for="Comments/Notes:">Comments/Notes*</label><input  id="Lead_Notes__c" maxlength="2000" name="Lead_Notes__c" size="20" type="text" required=true /><br><br>
-
-
-            <br></div><div class="col-xs-12 col-md-12 col-lg-12">
+        </div>
+        <div class="col-xs-12 col-md-12 col-lg-12">
+            <label for="Comments/Notes:">Comments/Notes*</label>
+            <input  id="Lead_Notes__c" maxlength="2000" name="Lead_Notes__c" size="20" type="text" required=true />
+            <br>
+            <br>
+            <br>
+        </div>
+        <div class="col-xs-12 col-md-12 col-lg-12">
             <input type="submit" name="submit" style="width: 100%; font-size: 13px;">
-
+        </div>
 </form>';
 
     return $form;
