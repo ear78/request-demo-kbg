@@ -24,6 +24,10 @@ function request_a_demo_form( $atts ){
     ],
         $atts);
 
+    $meta = '<META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
+    <script>function timestamp() { var response = document.getElementById("g-recaptcha-response"); if (response == null || response.value.trim() == "") {var elems = JSON.parse(document.getElementsByName("captcha_settings")[0].value);elems["ts"] = JSON.stringify(new Date().getTime());document.getElementsByName("captcha_settings")[0].value = JSON.stringify(elems); } } setInterval(timestamp, 500); 
+    </script>';
+
     $form = '<form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
 
     <input type=hidden name=\'captcha_settings\' value=\'{"keyname":"Kochava","fallback":"true","orgId":"00D1I000003nMFL","ts":""}\'>
@@ -413,7 +417,7 @@ function request_a_demo_form( $atts ){
     };
 </script>";
 
-    return $form . $script;
+    return $meta . $form . $script;
 
 }
 
