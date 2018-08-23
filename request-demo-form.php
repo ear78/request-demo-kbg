@@ -2,6 +2,14 @@
 
 /*
  * Shortcode to create reusable form for salesforce
+ *
+ * ex. [request_demo_form
+ *          ret_url=""
+ *          product_family_c=""
+ *          lead_source_detail=""
+ *          offer_type_c=""
+ *          campaign_id=""
+ *      ]
  */
 
 
