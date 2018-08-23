@@ -24,6 +24,10 @@ function request_a_demo_form( $atts ){
     ],
         $atts);
 
+    $meta = '<META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
+    <script>function timestamp() { var response = document.getElementById("g-recaptcha-response"); if (response == null || response.value.trim() == "") {var elems = JSON.parse(document.getElementsByName("captcha_settings")[0].value);elems["ts"] = JSON.stringify(new Date().getTime());document.getElementsByName("captcha_settings")[0].value = JSON.stringify(elems); } } setInterval(timestamp, 500); 
+    </script>';
+
     $form = '<form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
 
     <input type=hidden name=\'captcha_settings\' value=\'{"keyname":"Kochava","fallback":"true","orgId":"00D1I000003nMFL","ts":""}\'>
@@ -32,13 +36,13 @@ function request_a_demo_form( $atts ){
 
     <input type=hidden name="retURL" value="' . $a['ret_url'] . '">
 
-    <input type=hidden name="Product_Family__c" value="' . $a['product_family_c'] .'">
+    <input type=hidden name="Product_Family__c" value="' . $a['product_family_c'] . '">
 
     <input type=hidden name="lead_source" value="Website">
 
     <input id="dupcheck__dc3Web2Lead__c" name="dupcheck__dc3Web2Lead__c" type="hidden" value="1" />
 
-    <input type=hidden name="Lead_Source_Detail__c" value="' . $a['lead_source_detail'] .'">
+    <input type=hidden name="Lead_Source_Detail__c" value="' . $a['lead_source_detail'] . '">
 
     <input type=hidden name="Offer_Type__c" value="' . $a['offer_type_c'] . '">
 
@@ -49,19 +53,45 @@ function request_a_demo_form( $atts ){
     <input type="hidden" id="RollworksID__c" name="RollworksID__c" value="">
     <div class="row" style="margin-top: 50px;">
         <div class="col-xs-12 col-md-6 col-lg-6">
-            <label for="first_name">First Name*</label><input  id="first_name" maxlength="40" name="first_name" size="20" type="text" required=true />
+            <label for="first_name">First Name*</label>
+            <input  id="first_name" maxlength="40" name="first_name" size="20" type="text" required=true />
 
-            <br><br></div><div class="col-xs-12 col-md-6 col-lg-6">
+            <br><br>
+        </div>
+        <div class="col-xs-12 col-md-6 col-lg-6">
+            <label for="last_name">Last Name*</label>
+            <input  id="last_name" maxlength="80" name="last_name" size="20" type="text" required=true />
+            <br>
+            <br>
+        </div>
+        <div class="col-xs-12 col-md-6 col-lg-6">
 
-            <label for="last_name">Last Name*</label><input  id="last_name" maxlength="80" name="last_name" size="20" type="text" required=true /><br><br></div><div class="col-xs-12 col-md-6 col-lg-6">
+            <label for="Company">Company*</label>
+            <input  id="company" maxlength="140" name="company" size="20" type="text" required=true />
+            <br><br>
+        </div>
+        <div class="col-xs-12 col-md-6 col-lg-6">
 
-            <label for="Company">Company*</label><input  id="company" maxlength="140" name="company" size="20" type="text" required=true /><br><br></div><div class="col-xs-12 col-md-6 col-lg-6">
+            <label for="email">Email*</label>
+            <input  id="email" maxlength="80" name="email" size="20" type="text" required=true />
+            <br>
+            <br>
+            </div>
+        <div class="col-xs-12 col-md-6 col-lg-6">
 
-            <label for="email">Email*</label><input  id="email" maxlength="80" name="email" size="20" type="text" required=true /><br><br></div><div class="col-xs-12 col-md-6 col-lg-6">
+            <label for="URL">Website*</label>
+            <input  id="URL" maxlength="255" name="URL" size="20" type="text" required=true />
+            <br>
+            <br>
+        </div>
+        <div class="col-xs-12 col-md-6 col-lg-6">
 
-            <label for="URL">Website*</label><input  id="URL" maxlength="255" name="URL" size="20" type="text" required=true /><br><br></div><div class="col-xs-12 col-md-6 col-lg-6">
-
-            <label for="phone">Phone*</label><input  id="phone" maxlength="40" name="phone" size="20" type="text" required=true /><br><br></div><div class="col-xs-12 col-md-6 col-lg-6">
+            <label for="phone">Phone*</label>
+            <input  id="phone" maxlength="40" name="phone" size="20" type="text" required=true />
+            <br>
+            <br>
+        </div>
+        <div class="col-xs-12 col-md-6 col-lg-6">
 
             <label for="country">Country*</label>
             <select  id="country" name="country" required>
@@ -305,24 +335,89 @@ function request_a_demo_form( $atts ){
                 <option value="Yemen">Yemen</option>
                 <option value="Zambia">Zambia</option>
                 <option value="Zimbabwe">Zimbabwe</option>
-            </select><br><br>
-
+            </select>
+            <br>
+            <br>
             <input type=hidden name="Lead_Notes__c" value="Current Attribution Provider">
-        </div><div class="col-xs-12 col-md-6 col-lg-6">
-            <label for="Current Attribution Provider">Who is your Current Attribution Provider?*</label><input  id="Lead_Notes__c" maxlength="100" name="Lead_Notes__c" size="20" type="text" required=true /><br><br>
+        </div>
+        <div class="col-xs-12 col-md-6 col-lg-6">
+            <label for="Current Attribution Provider">Who is your Current Attribution Provider?*</label>
+            <input  id="Lead_Notes__c" maxlength="100" name="Lead_Notes__c" size="20" type="text" required=true />
+            <br>
+            <br>
 
             <input type=hidden name="Lead_Notes__c" value="Comments/Notes:">
 
-        </div><div class="col-xs-12 col-md-12 col-lg-12">
-            <label for="Comments/Notes:">Comments/Notes*</label><input  id="Lead_Notes__c" maxlength="2000" name="Lead_Notes__c" size="20" type="text" required=true /><br><br>
-
-
-            <br></div><div class="col-xs-12 col-md-12 col-lg-12">
+        </div>
+        <div class="col-xs-12 col-md-12 col-lg-12">
+            <label for="Comments/Notes:">Comments/Notes*</label>
+            <input  id="Lead_Notes__c" maxlength="2000" name="Lead_Notes__c" size="20" type="text" required=true />
+            <br>
+            <br>
+            <br>
+        </div>
+        <div class="col-xs-12 col-md-12 col-lg-12">
             <input type="submit" name="submit" style="width: 100%; font-size: 13px;">
-
+        </div>
 </form>';
 
-    return $form;
+    $script = "
+    <script> 
+      function readCookie(name) { 
+      var n = name + '='; 
+      var cookie = document.cookie.split(';'); 
+      for(var i=0;i < cookie.length;i++) {      
+          var c = cookie[i];      
+          while (c.charAt(0)==' '){c = c.substring(1,c.length);}      
+          if (c.indexOf(n) == 0){return c.substring(n.length,c.length);} 
+      } 
+      return null; 
+      } 
+    
+      window.onload = function() {      
+          document.getElementById('GCLID__c').value = 
+      readCookie('gclid'); 
+      } 
+     
+      function readCookie(name) { 
+      var n = name + '='; 
+      var cookie = document.cookie.split(';'); 
+      for(var i=0;i < cookie.length;i++) {      
+          var c = cookie[i];      
+          while (c.charAt(0)==' '){c = c.substring(1,c.length);}      
+          if (c.indexOf(n) == 0){return c.substring(n.length,c.length);} 
+      } 
+      return null; 
+      } 
+    
+      window.onload = function() {      
+          document.getElementById('RollworksID__c').value = 
+      readCookie('rowoid'); 
+      } 
+    
+    window.onload = function() {
+            var executed = false;
+            document.getElementsByName('submit')[0].addEventListener('click', function() {
+                if(executed==false){
+                executed = true;
+                var email = document.getElementById('email').value;
+                var company_ = document.getElementById('company').value;
+                var first_last_ = document.getElementById('first_name').value + ' ' +  document.getElementById('last_name').value;
+                var provider_ = document.getElementById('Lead_Notes__c').value;
+                kochava.activity('signup_start', {
+                                     userid: email,
+                                     product: 'Request a Demo',
+                                     company: company_,
+                                     current_provider: provider_,
+                                     contact_name: first_last_
+               },null);
+                };
+    
+    });
+    };
+</script>";
+
+    return $meta . $form . $script;
 
 }
 
