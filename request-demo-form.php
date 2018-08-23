@@ -357,7 +357,63 @@ function request_a_demo_form( $atts ){
         </div>
 </form>';
 
-    return $form;
+    $script = "
+    <script> 
+      function readCookie(name) { 
+      var n = name + '='; 
+      var cookie = document.cookie.split(';'); 
+      for(var i=0;i < cookie.length;i++) {      
+          var c = cookie[i];      
+          while (c.charAt(0)==' '){c = c.substring(1,c.length);}      
+          if (c.indexOf(n) == 0){return c.substring(n.length,c.length);} 
+      } 
+      return null; 
+      } 
+    
+      window.onload = function() {      
+          document.getElementById('GCLID__c').value = 
+      readCookie('gclid'); 
+      } 
+     
+      function readCookie(name) { 
+      var n = name + '='; 
+      var cookie = document.cookie.split(';'); 
+      for(var i=0;i < cookie.length;i++) {      
+          var c = cookie[i];      
+          while (c.charAt(0)==' '){c = c.substring(1,c.length);}      
+          if (c.indexOf(n) == 0){return c.substring(n.length,c.length);} 
+      } 
+      return null; 
+      } 
+    
+      window.onload = function() {      
+          document.getElementById('RollworksID__c').value = 
+      readCookie('rowoid'); 
+      } 
+    
+    window.onload = function() {
+            var executed = false;
+            document.getElementsByName('submit')[0].addEventListener('click', function() {
+                if(executed==false){
+                executed = true;
+                var email = document.getElementById('email').value;
+                var company_ = document.getElementById('company').value;
+                var first_last_ = document.getElementById('first_name').value + ' ' +  document.getElementById('last_name').value;
+                var provider_ = document.getElementById('Lead_Notes__c').value;
+                kochava.activity('signup_start', {
+                                     userid: email,
+                                     product: 'Request a Demo',
+                                     company: company_,
+                                     current_provider: provider_,
+                                     contact_name: first_last_
+               },null);
+                };
+    
+    });
+    };
+</script>";
+
+    return $form . $script;
 
 }
 
