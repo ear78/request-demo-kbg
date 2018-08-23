@@ -8,7 +8,7 @@
 function request_a_demo_form( $atts ){
 
     $a = shortcode_atts( [
-        'ret_url' => 'Test input',
+        'ret_url' => '',
         'product_family_c' => '',
         'lead_source_detail' => '',
         'offer_type_c' => '',
